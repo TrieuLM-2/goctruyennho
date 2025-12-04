@@ -1,0 +1,122 @@
+[
+    {
+        "id": "comment_001",
+        "userId": "user_001",
+        "username": "bookworm123",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_001",
+        "chapterId": "chap_book001_001",
+        "text": "Mở đầu rất cuốn hút! Mình rất thích cách tác giả mô tả Alex và tính cách của anh ấy.",
+        "likes": 15,
+        "replies": [],
+        "timestamp": "2024-01-20T10:30:00Z"
+    },
+    {
+        "id": "comment_002",
+        "userId": "user_002",
+        "username": "readerlove",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_001",
+        "chapterId": "chap_book001_002",
+        "text": "Phần gặp gỡ giữa Alex và Henry thật tuyệt! Tension giữa hai người rất cao 😍",
+        "likes": 23,
+        "replies": [],
+        "timestamp": "2024-01-21T14:15:00Z"
+    },
+    {
+        "id": "comment_003",
+        "userId": "user_003",
+        "username": "storylover",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_001",
+        "chapterId": "chap_book001_003",
+        "text": "OMG vụ bánh kem! 😂 Tôi không thể ngừng cười. Casey McQuiston viết quá hay!",
+        "likes": 45,
+        "replies": [],
+        "timestamp": "2024-01-22T09:45:00Z"
+    },
+    {
+        "id": "comment_004",
+        "userId": "user_001",
+        "username": "bookworm123",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_002",
+        "chapterId": "chap_book002_001",
+        "text": "Evelyn Hugo là một nhân vật quá mạnh mẽ. Mình đã khóc khi đọc xong cuốn này.",
+        "likes": 67,
+        "replies": [],
+        "timestamp": "2024-02-15T16:20:00Z"
+    },
+    {
+        "id": "comment_005",
+        "userId": "user_004",
+        "username": "vnreader",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_003",
+        "chapterId": "chap_book003_001",
+        "text": "Ý tưởng về Thư viện Nửa Đêm thật tuyệt vời! Ai mà không muốn có cơ hội thử những cuộc đời khác nhỉ?",
+        "likes": 34,
+        "replies": [],
+        "timestamp": "2024-03-25T11:00:00Z"
+    },
+    {
+        "id": "comment_006",
+        "userId": "user_002",
+        "username": "readerlove",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_003",
+        "chapterId": "chap_book003_002",
+        "text": "Cuốn Sách về Hối Tiếc khiến tôi suy nghĩ rất nhiều về cuộc đời mình. Sâu sắc quá!",
+        "likes": 28,
+        "replies": [],
+        "timestamp": "2024-03-26T13:30:00Z"
+    },
+    {
+        "id": "comment_007",
+        "userId": "user_005",
+        "username": "fictionfan",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_004",
+        "chapterId": "chap_book004_001",
+        "text": "Sally Rooney viết về mối quan hệ một cách chân thật đến đau lòng. Normal People là masterpiece!",
+        "likes": 52,
+        "replies": [],
+        "timestamp": "2024-04-10T08:45:00Z"
+    },
+    {
+        "id": "comment_008",
+        "userId": "user_003",
+        "username": "storylover",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_005",
+        "chapterId": "chap_book005_001",
+        "text": "Patroclus và Achilles 💙 Câu chuyện tình yêu đẹp nhất trong thần thoại Hy Lạp!",
+        "likes": 89,
+        "replies": [],
+        "timestamp": "2024-02-05T15:20:00Z"
+    },
+    {
+        "id": "comment_009",
+        "userId": "user_006",
+        "username": "mythfan",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_005",
+        "chapterId": "chap_book005_002",
+        "text": "Lời tiên tri bi thảm nhưng cách Madeline Miller kể lại thật tuyệt vời. Đọc mà muốn khóc!",
+        "likes": 73,
+        "replies": [],
+        "timestamp": "2024-02-08T12:15:00Z"
+    },
+    {
+        "id": "comment_010",
+        "userId": "user_004",
+        "username": "vnreader",
+        "userAvatar": "./assets/avatars/default.jpg",
+        "bookId": "book_001",
+        "chapterId": "chap_book001_001",
+        "text": "Bản dịch tiếng Việt tốt lắm! Giúp mình vừa học tiếng Anh vừa đọc truyện hay.",
+        "likes": 19,
+        "replies": [],
+        "timestamp": "2024-01-23T17:00:00Z"
+    }
+]

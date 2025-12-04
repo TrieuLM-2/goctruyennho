@@ -1,0 +1,183 @@
+[
+    {
+        "id": "chap_book001_001",
+        "bookId": "book_001",
+        "chapterNum": 1,
+        "title": "First Son, First Impressions",
+        "contentVN": [
+            "Alex Claremont-Diaz đứng trong Phòng Xanh của Nhà Trắng, nhìn ra cửa sổ với vẻ mặt không hề vui vẻ. Đây là ngày đầu tiên sau khi mẹ anh nhậm chức Tổng thống, và anh đang phải tham dự một bữa tiệc chào mừng mà anh không hề muốn có mặt.",
+            "Với tư cách là con trai của Tổng thống, Alex biết rằng anh sẽ phải sống dưới ánh đèn sân khấu. Nhưng điều đó không có nghĩa là anh phải thích nó. Anh thà ở lại Texas, nơi cuộc sống đơn giản hơn nhiều.",
+            "\"Alex, em cần chuẩn bị,\" June, chị gái của anh, xuất hiện bên cạnh. \"Hoàng gia Anh sắp đến.\"",
+            "Alex rên rỉ. Hoàng gia Anh. Điều đó có nghĩa là Hoàng tử Henry sẽ có mặt tại đây. Chàng hoàng tử mà anh đã từng gặp một lần và ngay lập tức ghét từ cái nhìn đầu tiên."
+        ],
+        "contentEN": [
+            "Alex Claremont-Diaz stood in the Blue Room of the White House, looking out the window with an unhappy expression. This was the first day after his mother took office as President, and he was attending a welcome party he had no desire to attend.",
+            "As the son of the President, Alex knew he would have to live in the spotlight. But that didn't mean he had to like it. He would rather be back in Texas, where life was much simpler.",
+            "\"Alex, you need to get ready,\" June, his sister, appeared beside him. \"The British Royal Family is about to arrive.\"",
+            "Alex groaned. The British Royal Family. That meant Prince Henry would be here. The prince he had met once before and immediately hated at first sight."
+        ],
+        "uploadDate": "2024-01-15",
+        "isFinal": false
+    },
+    {
+        "id": "chap_book001_002",
+        "bookId": "book_001",
+        "chapterNum": 2,
+        "title": "Royal Encounters",
+        "contentVN": [
+            "Hoàng tử Henry bước vào phòng với vẻ thanh lịch đặc trưng của hoàng gia. Anh ta cao, tóc vàng hoàn hảo, và có nụ cười lịch thiệp đã được rèn luyện qua nhiều năm tham gia các sự kiện công cộng.",
+            "Alex cảm thấy bực bội ngay lập tức. Tại sao một người có thể trông hoàn hảo đến vậy? Và tại sao điều đó lại khiến anh khó chịu đến thế?",
+            "\"Ngài Hoàng tử,\" Alex nói với giọng điệu lịch sự giả tạo.",
+            "\"Mr. Claremont-Diaz,\" Henry đáp lại, nụ cười không hề lay động."
+        ],
+        "contentEN": [
+            "Prince Henry entered the room with the characteristic elegance of royalty. He was tall, with perfectly blonde hair, and had a polite smile honed through years of public events.",
+            "Alex felt annoyed immediately. Why could someone look so perfect? And why did it bother him so much?",
+            "\"Your Highness,\" Alex said in a falsely polite tone.",
+            "\"Mr. Claremont-Diaz,\" Henry replied, his smile unwavering."
+        ],
+        "uploadDate": "2024-01-16",
+        "isFinal": false
+    },
+    {
+        "id": "chap_book001_003",
+        "bookId": "book_001",
+        "chapterNum": 3,
+        "title": "The Cake Incident",
+        "contentVN": [
+            "Mọi chuyện đáng lẽ sẽ ổn thỏa. Alex và Henry đã tránh nhau suốt buổi tiệc. Nhưng sau đó đến phần chúc mừng với bánh kem.",
+            "Không ai thực sự biết chuyện gì đã xảy ra. Có người nói Henry đã va vào Alex. Có người nói ngược lại. Nhưng kết quả là cả hai cùng ngã vào chiếc bánh cưới nhiều tầng trị giá 75,000 đô la.",
+            "Báo chí phát điên. Ảnh của Alex và Henry nằm trong đống bánh kem, trông như hai đứa trẻ đang đánh nhau, xuất hiện trên tất cả các mặt báo.",
+            "\"Các em đã làm gì vậy?\" Ellen Claremont, Tổng thống, nhìn hai người với vẻ mặt không tin nổi. \"Đây là thảm họa PR!\" Đây là lúc họ phải hành động. Và hành động đó là... giả vờ trở thành bạn bè."
+        ],
+        "contentEN": [
+            "Everything should have been fine. Alex and Henry had avoided each other throughout the party. But then came the congratulatory cake ceremony.",
+            "No one really knew what happened. Some said Henry bumped into Alex. Others said the opposite. But the result was both of them falling into the $75,000 multi-tiered wedding cake.",
+            "The press went crazy. Photos of Alex and Henry lying in the pile of cake, looking like two kids fighting, appeared in all the newspapers.",
+            "\"What have you two done?\" Ellen Claremont, the President, looked at them incredulously. \"This is a PR disaster!\" It was time for action. And that action was... to pretend to be friends."
+        ],
+        "uploadDate": "2024-01-17",
+        "isFinal": true
+    },
+    {
+        "id": "chap_book002_001",
+        "bookId": "book_002",
+        "chapterNum": 1,
+        "title": "The Interview",
+        "contentVN": [
+            "Monique Grant không thể tin vào tai mình khi nhận được cuộc gọi. Evelyn Hugo muốn gặp cô. Không phải bất kỳ phóng viên nào khác, mà chính là cô.",
+            "Evelyn Hugo - biểu tượng Hollywood, người phụ nữ đẹp nhất thế kỷ 20, bảy lần kết hôn và bảy lần ly hôn. Giờ đây, ở tuổi 79, cô ấy sẵn sàng kể câu chuyện thật của mình.",
+            "Khi Monique bước vào căn penthouse sang trọng ở Upper East Side, cô thấy một người phụ nữ vẫn đẹp đến kinh ngạc dù đã cao tuổi.",
+            "\"Cô đến rồi,\" Evelyn nói, giọng vẫn còn chút giọng Cuba từ thời thơ ấu. \"Hãy ngồi xuống, cưng. Chúng ta có rất nhiều chuyện để nói.\""
+        ],
+        "contentEN": [
+            "Monique Grant couldn't believe her ears when she received the call. Evelyn Hugo wanted to meet her. Not any other reporter, but her specifically.",
+            "Evelyn Hugo - Hollywood icon, the most beautiful woman of the 20th century, married seven times and divorced seven times. Now, at 79, she was ready to tell her true story.",
+            "As Monique stepped into the luxurious penthouse on the Upper East Side, she saw a woman still stunningly beautiful despite her age.",
+            "\"You're here,\" Evelyn said, her voice still carrying a hint of her childhood Cuban accent. \"Sit down, darling. We have so much to talk about.\""
+        ],
+        "uploadDate": "2024-02-10",
+        "isFinal": true
+    },
+    {
+        "id": "chap_book003_001",
+        "bookId": "book_003",
+        "chapterNum": 1,
+        "title": "Between Life and Death",
+        "contentVN": [
+            "Nora Seed quyết định rằng cuộc sống không còn đáng sống nữa. Không phải vì một lý do lớn lao nào, mà vì hàng nghìn lý do nhỏ nhặt tích tụ dần theo thời gian.",
+            "Công việc cô mất. Mèo cưng của cô chết. Anh trai cô không còn nói chuyện với cô. Nhóm nhạc cô từng yêu thích đã tan rã. Mọi quyết định cô từng đưa ra đều có vẻ như là sai lầm.",
+            "Nhưng thay vì cái chết, Nora thấy mình ở một nơi kỳ lạ: một thư viện khổng lồ. Và người quản lý thư viện là bà Elm, người từng là thầy giáo cũ của cô.",
+            "\"Chào mừng đến với Thư viện Nửa Đêm,\" bà Elm nói. \"Mỗi cuốn sách ở đây là một cuộc đời khác mà em có thể đã sống.\""
+        ],
+        "contentEN": [
+            "Nora Seed decided that life was no longer worth living. Not because of one great reason, but because of thousands of small reasons accumulated over time.",
+            "Her job was lost. Her beloved cat died. Her brother no longer spoke to her. The band she once loved had broken up. Every decision she had ever made seemed to be a mistake.",
+            "But instead of death, Nora found herself in a strange place: a massive library. And the librarian was Mrs. Elm, her former teacher.",
+            "\"Welcome to The Midnight Library,\" Mrs. Elm said. \"Each book here is a different life you could have lived.\""
+        ],
+        "uploadDate": "2024-03-20",
+        "isFinal": false
+    },
+    {
+        "id": "chap_book003_002",
+        "bookId": "book_003",
+        "chapterNum": 2,
+        "title": "The Book of Regrets",
+        "contentVN": [
+            "Cuốn sách đầu tiên bà Elm đưa cho Nora không giống những cuốn khác. Nó dày hơn, nặng hơn, và có màu xám u ám.",
+            "\"Đây là Cuốn Sách về Hối Tiếc,\" bà Elm giải thích. \"Nó chứa tất cả những điều em từng hối hận.\"",
+            "Nora mở sách và thấy hàng nghìn trang được viết bằng chữ viết tay của chính cô. Mỗi trang là một hối tiếc. Những điều cô đã làm, và quan trọng hơn, những điều cô đã không làm.",
+            "\"Nếu em muốn sống,\" bà Elm nói, \"em cần tìm ra cuộc sống em thực sự muốn. Hãy thử những cuốn sách khác. Nhưng nhớ rằng, nếu em cảm thấy tiếc nuối trong bất kỳ cuộc sống nào, em sẽ quay trở lại đây.\""
+        ],
+        "contentEN": [
+            "The first book Mrs. Elm gave Nora was unlike the others. It was thicker, heavier, and had a dismal gray color.",
+            "\"This is the Book of Regrets,\" Mrs. Elm explained. \"It contains everything you've ever regretted.\"",
+            "Nora opened the book and saw thousands of pages written in her own handwriting. Each page was a regret. Things she had done, and more importantly, things she hadn't done.",
+            "\"If you want to live,\" Mrs. Elm said, \"you need to find the life you truly want. Try the other books. But remember, if you feel regret in any life, you'll come back here.\""
+        ],
+        "uploadDate": "2024-03-22",
+        "isFinal": false
+    },
+    {
+        "id": "chap_book004_001",
+        "bookId": "book_004",
+        "chapterNum": 1,
+        "title": "Carricklea",
+        "contentVN": [
+            "Marianne trả lời câu hỏi một cách chính xác và thầy giáo gật đầu hài lòng. Connell ngồi ở hàng ghế sau, nhìn cô. Anh không hiểu tại sao Marianne lại bị ghét bỏ đến vậy.",
+            "Cô thông minh, đó là điều chắc chắn. Có lẽ quá thông minh cho nơi này. Cô không cố gắng hòa nhập, không cố gắng che giấu sự khác biệt của mình.",
+            "Sau giờ học, Connell đến nhà Marianne để đón mẹ mình - người làm việc như người giúp việc cho gia đình Marianne. Đó là lúc họ bắt đầu nói chuyện với nhau, khi không có ai khác nhìn thấy.",
+            "Họ nói về sách, về âm nhạc, về những suy nghĩ mà Connell không bao giờ chia sẻ với bạn bè ở trường. Và từ từ, một điều gì đó bắt đầu nảy nở giữa họ."
+        ],
+        "contentEN": [
+            "Marianne answered the question accurately and the teacher nodded in satisfaction. Connell sat in the back row, watching her. He didn't understand why Marianne was so hated.",
+            "She was smart, that was certain. Perhaps too smart for this place. She didn't try to fit in, didn't try to hide her difference.",
+            "After school, Connell went to Marianne's house to pick up his mother - who worked as a housekeeper for Marianne's family. That's when they started talking to each other, when no one else could see.",
+            "They talked about books, about music, about thoughts that Connell would never share with his friends at school. And slowly, something began to bloom between them."
+        ],
+        "uploadDate": "2024-04-05",
+        "isFinal": true
+    },
+    {
+        "id": "chap_book005_001",
+        "bookId": "book_005",
+        "chapterNum": 1,
+        "title": "The Prince of Phthia",
+        "contentVN": [
+            "Tôi bị lưu đày khi mới chín tuổi. Tội danh: giết người. Dù chỉ là một tai nạn, nhưng một hoàng tử đã giết một cậu bé quý tộc khác, và phải trả giá.",
+            "Cha tôi gửi tôi đến Phthia, đến với vua Peleus. Tại đó, tôi trở thành một trong những học trò của ông, sống chung với những đứa trẻ quý tộc khác.",
+            "Nhưng có một người không giống những đứa trẻ khác. Đó là Achilles, con trai của vua Peleus và nữ thần biển Thetis. Cậu ta nhanh nhẹn hơn, mạnh mẽ hơn, đẹp hơn bất kỳ ai tôi từng thấy.",
+            "Ngay từ lần đầu tiên nhìn thấy Achilles trên sân tập, tóc vàng óng của cậu ta tỏa sáng dưới ánh mặt trời, tôi biết cuộc đời tôi sẽ không bao giờ là của riêng mình nữa."
+        ],
+        "contentEN": [
+            "I was exiled when I was nine years old. The crime: murder. Though it was just an accident, a prince had killed another noble boy, and there was a price to pay.",
+            "My father sent me to Phthia, to King Peleus. There, I became one of his students, living with other noble children.",
+            "But there was one person who was unlike the other children. That was Achilles, son of King Peleus and the sea goddess Thetis. He was faster, stronger, more beautiful than anyone I had ever seen.",
+            "From the first time I saw Achilles on the training ground, his golden hair shining in the sunlight, I knew my life would never be my own again."
+        ],
+        "uploadDate": "2024-01-28",
+        "isFinal": false
+    },
+    {
+        "id": "chap_book005_002",
+        "bookId": "book_005",
+        "chapterNum": 2,
+        "title": "The Prophecy",
+        "contentVN": [
+            "Có một lời tiên tri về Achilles. Thetis, mẹ của cậu, đã cố gắng giấu nó, nhưng những lời tiên tri luôn tìm cách bộc lộ.",
+            "Achilles sẽ trở thành chiến binh vĩ đại nhất thế giới. Tên tuổi của cậu sẽ được ca ngợi qua hàng ngàn năm. Nhưng...""Nhưng cậu sẽ chết trẻ, trong chiến tranh Troy.",
+            "Thetis ghét lời tiên tri này. Bà muốn con trai mình sống lâu, dù vô danh, còn hơn chết trẻ dù nổi tiếng. Nhưng Achilles, khi biết được lời tiên tri, đã không do dự dù chỉ một giây.",
+            "Cậu sẽ chọn vinh quang, dù nó đi kèm với cái chết."
+        ],
+        "contentEN": [
+            "There was a prophecy about Achilles. Thetis, his mother, had tried to hide it, but prophecies always find a way to reveal themselves.",
+            "Achilles would become the greatest warrior in the world. His name would be praised for thousands of years. But...",
+            "But he would die young, in the Trojan War.",
+            "Thetis hated this prophecy. She wanted her son to live long, even if unknown, rather than die young despite being famous. But Achilles, when he learned of the prophecy, didn't hesitate for even a second.",
+            "He would choose glory, even if it came with death."
+        ],
+        "uploadDate": "2024-01-30",
+        "isFinal": true
+    }
+]

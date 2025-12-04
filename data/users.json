@@ -1,0 +1,76 @@
+[
+    {
+        "id": "user_001",
+        "username": "bookworm123",
+        "avatar": "./assets/avatars/default.jpg",
+        "role": "user",
+        "joinDate": "2024-01-10",
+        "readingHistory": [
+            "book_001",
+            "book_002",
+            "book_003"
+        ]
+    },
+    {
+        "id": "user_002",
+        "username": "readerlove",
+        "avatar": "./assets/avatars/default.jpg",
+        "role": "user",
+        "joinDate": "2024-01-12",
+        "readingHistory": [
+            "book_001",
+            "book_003"
+        ]
+    },
+    {
+        "id": "user_003",
+        "username": "storylover",
+        "avatar": "./assets/avatars/default.jpg",
+        "role": "user",
+        "joinDate": "2024-01-15",
+        "readingHistory": [
+            "book_001",
+            "book_005"
+        ]
+    },
+    {
+        "id": "user_004",
+        "username": "vnreader",
+        "avatar": "./assets/avatars/default.jpg",
+        "role": "user",
+        "joinDate": "2024-02-01",
+        "readingHistory": [
+            "book_001",
+            "book_003"
+        ]
+    },
+    {
+        "id": "user_005",
+        "username": "fictionfan",
+        "avatar": "./assets/avatars/default.jpg",
+        "role": "user",
+        "joinDate": "2024-02-15",
+        "readingHistory": [
+            "book_004"
+        ]
+    },
+    {
+        "id": "user_006",
+        "username": "mythfan",
+        "avatar": "./assets/avatars/default.jpg",
+        "role": "user",
+        "joinDate": "2024-01-25",
+        "readingHistory": [
+            "book_005"
+        ]
+    },
+    {
+        "id": "admin_001",
+        "username": "admin",
+        "password": "admin123",
+        "avatar": "./assets/avatars/default.jpg",
+        "role": "admin",
+        "joinDate": "2024-01-01",
+        "readingHistory": []
+    }
+]

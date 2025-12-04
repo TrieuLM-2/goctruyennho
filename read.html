@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đọc truyện">
+    <title>Đọc truyện - Mê đọc truyện chữ</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Georgia&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+
+    <link rel="icon" href="./assets/icons/favicon.ico">
+
+    <style>
+        .reading-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--space-8) var(--space-6);
+        }
+
+        .chapter-paragraph {
+            margin-bottom: var(--space-6);
+            text-align: justify;
+        }
+
+        .chapter-paragraph.lang-vn {
+            font-weight: 500;
+        }
+
+        .chapter-paragraph.lang-en {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-4);
+            margin: var(--space-8) 0;
+        }
+
+        .settings-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: var(--bg-overlay);
+            z-index: 89;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="readingProgressBar"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container flex items-center justify-between">
+            <div class="flex items-center gap-4 flex-1">
+                <button class="btn-icon" onclick="goToBookDetail()" title="Quay lại">
+                    ⬅️
+                </button>
+                <div class="flex-1">
+                    <div class="text-sm text-secondary" id="bookTitle">Loading...</div>
+                    <div class="font-semibold" id="chapterTitle">Loading...</div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="theme-toggle desktop-only">
+                    <button class="theme-btn active" data-theme-btn="light" title="Sáng">☀️</button>
+                    <button class="theme-btn" data-theme-btn="dark" title="Tối">🌙</button>
+                    <button class="theme-btn" data-theme-btn="sepia" title="Sepia">📄</button>
+                </div>
+                <button class="btn-icon" id="settingsToggle" title="Cài đặt">
+                    ⚙️
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Settings Overlay -->
+    <div class="settings-overlay hidden" id="settingsOverlay"></div>
+
+    <!-- Floating Settings Panel -->
+    <aside class="settings-panel" id="settingsPanel">
+        <h3 class="sidebar-title mb-6">⚙️ Cài đặt đọc</h3>
+
+        <!-- Language Mode -->
+        <div class="settings-group">
+            <label class="settings-label">Ngôn ngữ hiển thị</label>
+            <div class="settings-options">
+                <button class="settings-option" data-lang="vn">
+                    🇻🇳<br>Tiếng Việt
+                </button>
+                <button class="settings-option" data-lang="en">
+                    🇬🇧<br>English
+                </button>
+                <button class="settings-option active" data-lang="bilingual">
+                    🌐<br>Song ngữ
+                </button>
+            </div>
+        </div>
+
+        <!-- Font Family -->
+        <div class="settings-group">
+            <label class="settings-label">Font chữ</label>
+            <div class="settings-options">
+                <button class="settings-option active" data-font="Nunito">Nunito</button>
+                <button class="settings-option" data-font="Georgia">Georgia</button>
+                <button class="settings-option" data-font="Arial">Arial</button>
+            </div>
+        </div>
+
+        <!-- Font Size -->
+        <div class="settings-group">
+            <label class="settings-label">
+                Kích thước chữ: <span id="fontSizeValue">100%</span>
+            </label>
+            <input type="range" class="slider" id="fontSizeSlider" min="80" max="200" value="100">
+        </div>
+
+        <!-- Line Height -->
+        <div class="settings-group">
+            <label class="settings-label">
+                Khoảng cách dòng: <span id="lineHeightValue">1.75</span>
+            </label>
+            <input type="range" class="slider" id="lineHeightSlider" min="1.0" max="2.5" step="0.25" value="1.75">
+        </div>
+
+        <!-- Text Alignment -->
+        <div class="settings-group">
+            <label class="settings-label">Căn chỉnh</label>
+            <div class="settings-options">
+                <button class="settings-option active" data-align="left">
+                    ⬅️<br>Trái
+                </button>
+                <button class="settings-option" data-align="center">
+                    ↔️<br>Giữa
+                </button>
+                <button class="settings-option" data-align="justify">
+                    ⬌<br>Đều
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Loading State -->
+        <div id="loadingState" class="loading-overlay">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Reader Content -->
+        <div id="readerContent" class="hidden">
+            <!-- Top Navigation -->
+            <div class="container">
+                <div class="chapter-nav">
+                    <button class="btn btn-secondary" id="prevChapterBtn">
+                        ‹ Chương trước
+                    </button>
+                    <button class="btn btn-secondary" onclick="goToBookDetail()">
+                        📑 Mục lục
+                    </button>
+                    <button class="btn btn-secondary" id="nextChapterBtn">
+                        Chương sau ›
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chapter Content -->
+            <article class="reading-content" id="chapterContent">
+                <!-- Content will be loaded here -->
+            </article>
+
+            <!-- Bottom Navigation -->
+            <div class="container">
+                <div class="chapter-nav">
+                    <button class="btn btn-secondary" id="prevChapterBtnBottom">
+                        ‹ Chương trước
+                    </button>
+                    <button class="btn btn-secondary" onclick="goToBookDetail()">
+                        📑 Mục lục
+                    </button>
+                    <button class="btn btn-secondary" id="nextChapterBtnBottom">
+                        Chương sau ›
+                    </button>
+                </div>
+            </div>
+
+            <!-- Rating Section (only for final chapter) -->
+            <section class="container mt-12 mb-8" id="ratingSection" style="display: none;">
+                <div class="bg-secondary rounded-lg p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">⭐ Đánh giá truyện này</h3>
+                    <p class="text-secondary mb-6">Bạn thấy truyện này thế nào?</p>
+
+                    <div id="ratingForm">
+                        <div class="rating-stars justify-center mb-6" id="ratingStars">
+                            <span class="star" data-rating="1" onclick="setRating(1)">☆</span>
+                            <span class="star" data-rating="2" onclick="setRating(2)">☆</span>
+                            <span class="star" data-rating="3" onclick="setRating(3)">☆</span>
+                            <span class="star" data-rating="4" onclick="setRating(4)">☆</span>
+                            <span class="star" data-rating="5" onclick="setRating(5)">☆</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="submitRating()">
+                            Gửi đánh giá
+                        </button>
+                    </div>
+
+                    <div id="ratingThanks" style="display: none;">
+                        <p class="text-lg">🎉 Cảm ơn bạn đã đánh giá!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comments Section -->
+            <section class="container mb-12">
+                <h3 class="text-2xl font-bold mb-6">💬 Bình luận chương này</h3>
+
+                <!-- Comment Form -->
+                <div class="mb-6">
+                    <textarea class="form-textarea" id="commentInput" placeholder="Viết bình luận của bạn..."
+                        rows="4"></textarea>
+                    <button class="btn btn-primary mt-3" onclick="submitComment()">
+                        Gửi bình luận
+                    </button>
+                </div>
+
+                <!-- Comments List -->
+                <div id="chapterComments">
+                    <!-- Comments will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="./js/utils.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/data-manager.js"></script>
+    <script src="./js/reader.js"></script>
+    <script>
+        // Rating interaction
+        function setRating(rating) {
+            const stars = document.querySelectorAll('#ratingStars .star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.textContent = '★';
+                    star.classList.add('filled');
+                } else {
+                    star.textContent = '☆';
+                    star.classList.remove('filled');
+                }
+            });
+        }
+
+        // Sync bottom navigation with top navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const topPrev = document.getElementById('prevChapterBtn');
+            const topNext = document.getElementById('nextChapterBtn');
+            const bottomPrev = document.getElementById('prevChapterBtnBottom');
+            const bottomNext = document.getElementById('nextChapterBtnBottom');
+
+            if (topPrev && bottomPrev) {
+                bottomPrev.disabled = topPrev.disabled;
+                bottomPrev.onclick = topPrev.onclick;
+            }
+
+            if (topNext && bottomNext) {
+                bottomNext.disabled = topNext.disabled;
+                bottomNext.onclick = topNext.onclick;
+            }
+        });
+    </script>
+</body>
+
+</html>

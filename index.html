@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mê đọc truyện chữ - Nền tảng đọc truyện online với hàng ngàn cuốn sách hay, hỗ trợ song ngữ Việt-Anh">
+  <meta name="keywords" content="đọc truyện, truyện chữ, sách online, song ngữ, bilingual books">
+  <title>Mê đọc truyện chữ - Đọc truyện online miễn phí</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/icons/favicon.ico">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container flex items-center justify-between">
+      <!-- Logo -->
+      <a href="./index.html" class="logo">
+        <span>📚</span>
+        <span>Mê đọc truyện chữ</span>
+      </a>
+      
+      <!-- Navigation Menu -->
+      <nav class="nav-menu">
+        <a href="./index.html" class="nav-link active">Trang chủ</a>
+        <a href="./index.html?filter=completed" class="nav-link">Hoàn thành</a>
+        <a href="./index.html?filter=ongoing" class="nav-link">Đang cập nhật</a>
+      </nav>
+      
+      <!-- Right Actions -->
+      <div class="flex items-center gap-4">
+        <!-- Search Bar -->
+        <div class="search-bar desktop-only">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="search" 
+            class="search-input" 
+            placeholder="Tìm truyện, tác giả..."
+            id="searchInput"
+          >
+        </div>
+        
+        <!-- Theme Toggle -->
+        <div class="theme-toggle">
+          <button class="theme-btn active" data-theme-btn="light" title="Sáng">☀️</button>
+          <button class="theme-btn" data-theme-btn="dark" title="Tối">🌙</button>
+          <button class="theme-btn" data-theme-btn="sepia" title="Sepia">📄</button>
+        </div>
+        
+        <!-- User Account -->
+        <button class="btn-icon" id="userMenuBtn" title="Tài khoản">
+          👤
+        </button>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle mobile-only" id="mobileMenuToggle">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero text-center mb-8 animate-fade-in">
+        <h1 class="text-4xl font-bold mb-4" style="background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          Chào mừng đến với thế giới truyện chữ
+        </h1>
+        <p class="text-lg text-secondary mb-6">
+          Khám phá hàng ngàn cuốn sách hay, đọc song ngữ Việt-Anh, trải nghiệm đọc tuyệt vời
+        </p>
+        <div class="flex justify-center gap-4">
+          <button class="btn btn-primary btn-lg" onclick="scrollToElement('#booksGrid', 100)">
+            Khám phá ngay
+          </button>
+          <button class="btn btn-secondary btn-lg" onclick="window.location.href='./admin.html'">
+            Quản trị viên
+          </button>
+        </div>
+      </section>
+
+      <!-- Mobile Search -->
+      <div class="mobile-only mb-6">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="search" 
+            class="search-input" 
+            placeholder="Tìm truyện, tác giả..."
+            id="searchInputMobile"
+          >
+        </div>
+      </div>
+
+      <!-- Main Layout: Grid + Sidebar -->
+      <div class="homepage-layout">
+        <!-- Books Section -->
+        <section>
+          <!-- Filters and Sort -->
+          <div class="flex items-center justify-between mb-6 flex-wrap gap-4">
+            <div>
+              <h2 class="text-2xl font-bold">Danh sách truyện</h2>
+              <p class="text-sm text-secondary" id="bookCount">Đang tải...</p>
+            </div>
+            
+            <div class="flex gap-3 flex-wrap">
+              <select id="sortSelect" class="form-select" style="width: auto; min-width: 150px;">
+                <option value="newest">Mới nhất</option>
+                <option value="rating">Đánh giá cao</option>
+                <option value="views">Lượt đọc nhiều</option>
+              </select>
+              
+              <select id="genreFilter" class="form-select" style="width: auto; min-width: 150px;">
+                <option value="all">Tất cả thể loại</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Books Grid -->
+          <div class="books-grid grid gap-6 mb-8" id="booksGrid">
+            <!-- Books will be loaded here dynamically -->
+            <div class="loading-overlay">
+              <div class="spinner"></div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination" id="pagination">
+            <!-- Pagination will be generated here -->
+          </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar desktop-only">
+          <h3 class="sidebar-title">Danh mục</h3>
+          
+          <!-- Status Filter -->
+          <div class="sidebar-section">
+            <h4 class="sidebar-section-title">Tình trạng</h4>
+            <div class="sidebar-list">
+              <a href="./index.html" class="sidebar-link active">
+                <span>Tất cả</span>
+                <span class="sidebar-count" id="allCount">0</span>
+              </a>
+              <a href="./index.html?filter=completed" class="sidebar-link">
+                <span>Hoàn thành</span>
+                <span class="sidebar-count" id="completedCount">0</span>
+              </a>
+              <a href="./index.html?filter=ongoing" class="sidebar-link">
+                <span>Đang cập nhật</span>
+                <span class="sidebar-count" id="ongoingCount">0</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Genre Filter -->
+          <div class="sidebar-section">
+            <h4 class="sidebar-section-title">Thể loại</h4>
+            <div class="sidebar-list" id="genreList">
+              <!-- Genres will be loaded dynamically -->
+            </div>
+          </div>
+
+          <!-- Popular Books -->
+          <div class="sidebar-section">
+            <h4 class="sidebar-section-title">Đọc nhiều nhất</h4>
+            <div id="popularBooks">
+              <!-- Popular books will be loaded here -->
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2024 Mê đọc truyện chữ. All rights reserved.</p>
+        <p class="text-sm text-tertiary">
+          Nền tảng đọc truyện online với trải nghiệm song ngữ tuyệt vời
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./js/utils.js"></script>
+  <script src="./js/theme.js"></script>
+  <script src="./js/data-manager.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

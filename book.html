@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chi tiết sách">
+    <title>Chi tiết sách - Mê đọc truyện chữ</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+
+    <link rel="icon" href="./assets/icons/favicon.ico">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container flex items-center justify-between">
+            <a href="./index.html" class="logo">
+                <span>📚</span>
+                <span>Mê đọc truyện chữ</span>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="./index.html" class="nav-link">Trang chủ</a>
+                <a href="./index.html?filter=completed" class="nav-link">Hoàn thành</a>
+                <a href="./index.html?filter=ongoing" class="nav-link">Đang cập nhật</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <div class="theme-toggle">
+                    <button class="theme-btn active" data-theme-btn="light" title="Sáng">☀️</button>
+                    <button class="theme-btn" data-theme-btn="dark" title="Tối">🌙</button>
+                    <button class="theme-btn" data-theme-btn="sepia" title="Sepia">📄</button>
+                </div>
+                <button class="mobile-menu-toggle mobile-only" id="mobileMenuToggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-overlay">
+                <div class="spinner"></div>
+            </div>
+
+            <!-- Book Detail Content -->
+            <div id="bookDetail" class="hidden">
+                <!-- Book Header -->
+                <section class="book-detail-header flex gap-8 mb-8">
+                    <div class="book-cover-large">
+                        <img id="bookCover" src="" alt=""
+                            style="width: 100%; max-width: 350px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);">
+                    </div>
+
+                    <div class="flex-1">
+                        <h1 id="bookTitle" class="text-4xl font-bold mb-3"></h1>
+                        <p class="text-lg text-secondary mb-4">
+                            Tác giả: <span id="bookAuthor" class="font-semibold"></span>
+                        </p>
+
+                        <div class="genre-tags mb-4" id="bookGenres"></div>
+
+                        <div class="rating-display mb-6">
+                            <div class="rating-stars" id="bookRating"></div>
+                            <span class="rating-value" id="avgRating">0.0</span>
+                            <span class="rating-count" id="ratingCount">(0 đánh giá)</span>
+                            <span class="text-tertiary mx-3">•</span>
+                            <span class="text-secondary" id="viewCount">0 lượt đọc</span>
+                        </div>
+
+                        <div class="flex gap-3 mb-6">
+                            <button class="btn btn-primary btn-lg" id="startReadingBtn">
+                                📖 Bắt đầu đọc
+                            </button>
+                            <button class="btn btn-secondary btn-lg" id="continueReadingBtn" style="display: none;">
+                                ▶️ Đọc tiếp
+                            </button>
+                            <button class="btn btn-ghost" onclick="addToShelf(URLUtils.getParam('id'))">
+                                ⭐ Thêm vào kệ
+                            </button>
+                        </div>
+
+                        <div class="mb-4">
+                            <span class="badge badge-primary" id="bookStatus"></span>
+                            <span class="text-secondary ml-2" id="publishDate"></span>
+                        </div>
+
+                        <div id="readingProgress" class="mb-4" style="display: none;">
+                            <div class="text-sm text-secondary mb-2">Tiến độ đọc của bạn:</div>
+                            <div class="progress-bar" style="position: static; height: 8px;">
+                                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                            </div>
+                            <div class="text-xs text-tertiary mt-1" id="progressText"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Synopsis -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">📝 Tóm tắt</h2>
+                    <div class="bg-secondary rounded-lg p-6">
+                        <p id="bookDescription" class="text-base line-height-relaxed"></p>
+                    </div>
+                </section>
+
+                <!-- Chapter List and Comments Layout -->
+                <div class="book-detail-layout">
+                    <!-- Chapter List -->
+                    <section>
+                        <h2 class="text-2xl font-bold mb-4">📑 Mục lục (<span id="chapterCount">0</span> chương)</h2>
+                        <div class="chapter-list" id="chapterList">
+                            <!-- Chapters will be loaded here -->
+                        </div>
+                    </section>
+
+                    <!-- All Comments Section -->
+                    <aside>
+                        <div class="sidebar">
+                            <h3 class="sidebar-title">💬 Tất cả bình luận</h3>
+
+                            <div class="mb-4">
+                                <select id="commentSort" class="form-select">
+                                    <option value="newest">Mới nhất</option>
+                                    <option value="likes">Nhiều like nhất</option>
+                                </select>
+                            </div>
+
+                            <div id="allComments">
+                                <!-- Comments will be loaded here -->
+                            </div>
+
+                            <button class="btn btn-secondary w-full mt-4" id="loadMoreComments" style="width: 100%;">
+                                Xem thêm bình luận
+                            </button>
+                        </div>
+                    </aside>
+                </div>
+
+                <!-- Related Books -->
+                <section class="mt-12">
+                    <h2 class="text-2xl font-bold mb-6">📚 Sách liên quan</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6" id="relatedBooks">
+                        <!-- Related books will be loaded here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Mê đọc truyện chữ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/utils.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/data-manager.js"></script>
+    <script>
+        // Book detail page logic
+        let currentBook = null;
+        let allComments = [];
+        let displayedComments = 0;
+        const commentsPerLoad = 10;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const bookId = URLUtils.getParam('id');
+            if (!bookId) {
+                window.location.href = './index.html';
+                return;
+            }
+
+            await loadBookDetail(bookId);
+        });
+
+        async function loadBookDetail(bookId) {
+            try {
+                currentBook = await dataManager.getBookById(bookId);
+                if (!currentBook) {
+                    showError('Không tìm thấy truyện');
+                    return;
+                }
+
+                // Update page title
+                document.title = `${currentBook.title} - Mê đọc truyện chữ`;
+
+                // Display book info
+                document.getElementById('bookCover').src = currentBook.cover;
+                document.getElementById('bookCover').alt = currentBook.title;
+                document.getElementById('bookTitle').textContent = currentBook.title;
+                document.getElementById('bookAuthor').textContent = currentBook.author;
+                document.getElementById('bookDescription').textContent = currentBook.description;
+
+                // Genres
+                document.getElementById('bookGenres').innerHTML = currentBook.genres
+                    .map(g => `<span class="genre-tag">${g}</span>`).join('');
+
+                // Rating
+                const rating = currentBook.avgRating || 0;
+                const stars = '⭐'.repeat(Math.floor(rating));
+                document.getElementById('bookRating').innerHTML = stars;
+                document.getElementById('avgRating').textContent = rating.toFixed(1);
+                document.getElementById('ratingCount').textContent = `(${currentBook.totalRatings || 0} đánh giá)`;
+                document.getElementById('viewCount').textContent = `${formatNumber(currentBook.views || 0)} lượt đọc`;
+
+                // Status
+                const statusEl = document.getElementById('bookStatus');
+                if (currentBook.status === 'completed') {
+                    statusEl.textContent = 'Hoàn thành';
+                    statusEl.className = 'badge badge-success';
+                } else {
+                    statusEl.textContent = 'Đang cập nhật';
+                    statusEl.className = 'badge badge-warning';
+                }
+
+                // Publish date
+                if (currentBook.dateAdded) {
+                    document.getElementById('publishDate').textContent =
+                        `Đăng ngày ${DateUtils.formatSimple(currentBook.dateAdded)}`;
+                }
+
+                // Load chapters
+                await loadChapters(bookId);
+
+                // Load comments
+                await loadComments(bookId);
+
+                // Load related books
+                await loadRelatedBooks();
+
+                // Check reading progress
+                checkReadingProgress(bookId);
+
+                // Show content
+                document.getElementById('loadingState').classList.add('hidden');
+                document.getElementById('bookDetail').classList.remove('hidden');
+                document.getElementById('bookDetail').classList.add('animate-fade-in');
+
+            } catch (error) {
+                console.error('Error loading book:', error);
+                showError('Lỗi khi tải thông tin truyện');
+            }
+        }
+
+        async function loadChapters(bookId) {
+            const chapters = await dataManager.getBookChapters(bookId);
+            document.getElementById('chapterCount').textContent = chapters.length;
+
+            const chapterList = document.getElementById('chapterList');
+            chapterList.innerHTML = chapters.map((chapter, index) => {
+                const isRead = ReadingProgress.isChapterRead(bookId, chapter.id);
+                return `
+          <div class="chapter-item ${isRead ? 'read' : ''}" onclick="goToChapter('${chapter.id}')">
+            <div class="chapter-number">Chương ${chapter.chapterNum}</div>
+            <div class="chapter-title">${chapter.title}</div>
+            <div class="chapter-date">${DateUtils.formatSimple(chapter.uploadDate)}</div>
+            <div class="chapter-status ${isRead ? '' : 'unread'}"></div>
+          </div>
+        `;
+            }).join('');
+
+            // Setup start reading button
+            if (chapters.length > 0) {
+                document.getElementById('startReadingBtn').onclick = () => {
+                    goToChapter(chapters[0].id);
+                };
+            }
+        }
+
+        async function loadComments(bookId) {
+            allComments = await dataManager.getBookComments(bookId);
+            displayedComments = 0;
+            displayComments();
+        }
+
+        function displayComments() {
+            const container = document.getElementById('allComments');
+            const end = Math.min(displayedComments + commentsPerLoad, allComments.length);
+            const commentsToShow = allComments.slice(displayedComments, end);
+
+            const html = commentsToShow.map(comment => createCommentHTML(comment)).join('');
+
+            if (displayedComments === 0) {
+                container.innerHTML = html;
+            } else {
+                container.innerHTML += html;
+            }
+
+            displayedComments = end;
+
+            // Update load more button
+            const loadMoreBtn = document.getElementById('loadMoreComments');
+            if (displayedComments >= allComments.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+                loadMoreBtn.onclick = displayComments;
+            }
+
+            if (allComments.length === 0) {
+                container.innerHTML = '<p class="text-secondary text-center p-6">Chưa có bình luận nào</p>';
+            }
+        }
+
+        function createCommentHTML(comment) {
+            return `
+        <div class="comment-card">
+          <div class="comment-header">
+            <img src="${comment.userAvatar || './assets/avatars/default.jpg'}" alt="" class="comment-avatar">
+            <div class="comment-user-info">
+              <div class="comment-username">${comment.username || 'Anonymous'}</div>
+              <div class="comment-meta">
+                Chương ${comment.chapterNumber} • ${DateUtils.getRelativeTime(comment.timestamp)}
+              </div>
+            </div>
+          </div>
+          <div class="comment-text">${comment.text}</div>
+          <div class="comment-actions">
+            <span class="comment-action">
+              👍 ${comment.likes || 0}
+            </span>
+          </div>
+        </div>
+      `;
+        }
+
+        async function loadRelatedBooks() {
+            const allBooks = await dataManager.getBooks();
+            const related = allBooks
+                .filter(b => b.id !== currentBook.id &&
+                    b.genres.some(g => currentBook.genres.includes(g)))
+                .slice(0, 5);
+
+            const container = document.getElementById('relatedBooks');
+            container.innerHTML = related.map(book => `
+        <div class="book-card" onclick="window.location.href='./book.html?id=${book.id}'">
+          <div class="book-card-cover">
+            <img src="${book.cover}" alt="${book.title}" loading="lazy">
+          </div>
+          <div class="book-card-content">
+            <h4 class="book-card-title line-clamp-2">${book.title}</h4>
+            <p class="book-card-author">${book.author}</p>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        function checkReadingProgress(bookId) {
+            const progress = ReadingProgress.getPosition(bookId);
+            if (progress && progress.chapterId) {
+                const continueBtn = document.getElementById('continueReadingBtn');
+                continueBtn.style.display = 'inline-flex';
+                continueBtn.onclick = () => goToChapter(progress.chapterId);
+
+                // Show progress bar
+                const readChapters = ReadingProgress.getReadChapters(bookId);
+                const totalChapters = currentBook.chapters.length;
+                const progressPercent = Math.round((readChapters.length / totalChapters) * 100);
+
+                document.getElementById('readingProgress').style.display = 'block';
+                document.getElementById('progressFill').style.width = `${progressPercent}%`;
+                document.getElementById('progressText').textContent =
+                    `Đã đọc ${readChapters.length}/${totalChapters} chương (${progressPercent}%)`;
+            }
+        }
+
+        function goToChapter(chapterId) {
+            window.location.href = `./read.html?id=${chapterId}`;
+        }
+
+        function addToShelf(bookId) {
+            const shelf = LocalStorage.get('myShelf', []);
+            if (!shelf.includes(bookId)) {
+                shelf.push(bookId);
+                LocalStorage.set('myShelf', shelf);
+                showToast('Đã thêm vào kệ sách!', 'success');
+            } else {
+                showToast('Truyện đã có trong kệ sách!', 'info');
+            }
+        }
+
+        function showError(message) {
+            document.getElementById('loadingState').innerHTML = `
+        <div style="text-align: center; padding: var(--space-16);">
+          <p class="text-2xl mb-4">❌</p>
+          <p class="text-lg text-secondary mb-6">${message}</p>
+          <button class="btn btn-primary" onclick="window.location.href='./index.html'">
+            Về trang chủ
+          </button>
+        </div>
+      `;
+        }
+    </script>
+</body>
+
+</html>

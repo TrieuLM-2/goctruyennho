@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị - Mê đọc truyện chữ</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body>
+    <div id="loginScreen">
+        <div class="flex items-center justify-center"
+            style="min-height: 100vh; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));">
+            <div class="modal" style="width: 100%; max-width: 400px; animation: scaleIn 0.3s;">
+                <div class="modal-header">
+                    <h2 class="modal-title">🔐 Đăng nhập Quản trị</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label">Tên đăng nhập</label>
+                        <input type="text" class="form-input" id="loginUsername" value="admin">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-input" id="loginPassword" value="admin123">
+                    </div>
+                    <button class="btn btn-primary w-full" onclick="handleLogin()" style="width: 100%;">
+                        Đăng nhập
+                    </button>
+                    <p class="text-sm text-secondary mt-4 text-center">
+                        Demo: admin / admin123
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="adminDashboard" class="hidden">
+        <header class="site-header">
+            <div class="container flex items-center justify-between">
+                <a href="./admin.html" class="logo">
+                    <span>⚙️</span>
+                    <span>Admin Dashboard</span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <a href="./index.html" class="btn btn-ghost">Xem trang web</a>
+                    <button class="btn btn-secondary" onclick="handleLogout()">Đăng xuất</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="container">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-secondary rounded-lg p-6 text-center">
+                        <div class="text-4xl mb-2">📚</div>
+                        <div class="text-3xl font-bold mb-1" id="totalBooks">0</div>
+                        <div class="text-sm text-secondary">Tổng số sách</div>
+                    </div>
+                    <div class="bg-secondary rounded-lg p-6 text-center">
+                        <div class="text-4xl mb-2">📑</div>
+                        <div class="text-3xl font-bold mb-1" id="totalChapters">0</div>
+                        <div class="text-sm text-secondary">Tổng số chương</div>
+                    </div>
+                    <div class="bg-secondary rounded-lg p-6 text-center">
+                        <div class="text-4xl mb-2">👥</div>
+                        <div class="text-3xl font-bold mb-1" id="totalUsers">0</div>
+                        <div class="text-sm text-secondary">Người dùng</div>
+                    </div>
+                    <div class="bg-secondary rounded-lg p-6 text-center">
+                        <div class="text-4xl mb-2">💬</div>
+                        <div class="text-3xl font-bold mb-1" id="totalComments">0</div>
+                        <div class="text-sm text-secondary">Bình luận</div>
+                    </div>
+                </div>
+
+                <!-- Admin Sections -->
+                <div class="bg-secondary rounded-lg p-8">
+                    <h2 class="text-2xl font-bold mb-6">📋 Quản lý nội dung</h2>
+
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-4">📚 Quản lý Sách</h3>
+                        <p class="text-secondary mb-4">
+                            Để quản lý sách và chương, vui lòng chỉnh sửa các file JSON trong thư mục <code
+                                class="bg-tertiary px-2 py-1 rounded">data/</code>:
+                        </p>
+                        <ul class="list-disc ml-6 space-y-2 text-secondary">
+                            <li><code>data/books.json</code> - Danh sách sách và metadata</li>
+                            <li><code>data/chapters.json</code> - Nội dung các chương (song ngữ)</li>
+                            <li><code>data/comments.json</code> - Bình luận người dùng</li>
+                            <li><code>data/users.json</code> - Thông tin người dùng</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-4">➕ Thêm sách mới</h3>
+                        <p class="text-secondary mb-4">Để thêm sách mới:</p>
+                        <ol class="list-decimal ml-6 space-y-2 text-secondary">
+                            <li>Thêm ảnh bìa vào thư mục <code
+                                    class="bg-tertiary px-2 py-1 rounded">assets/covers/</code></li>
+                            <li>Thêm thông tin sách vào <code
+                                    class="bg-tertiary px-2 py-1 rounded">data/books.json</code></li>
+                            <li>Thêm các chương vào <code
+                                    class="bg-tertiary px-2 py-1 rounded">data/chapters.json</code></li>
+                            <li>Định dạng nội dung theo cấu trúc song ngữ (mảng contentVN và contentEN)</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-primary rounded-lg p-6 mb-6">
+                        <h4 class="font-semibold mb-3">📝 Định dạng Chapter (Bilingual)</h4>
+                        <pre class="bg-tertiary p-4 rounded overflow-auto text-sm"><code>{
+  "id": "chap_book001_001",
+  "bookId": "book_001",
+  "chapterNum": 1,
+  "title": "Chapter Title",
+  "contentVN": [
+    "Đoạn tiếng Việt 1",
+    "Đoạn tiếng Việt 2"
+  ],
+  "contentEN": [
+    "English paragraph 1",
+    "English paragraph 2"
+  ],
+  "uploadDate": "2024-01-15",
+  "isFinal": false
+}</code></pre>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-4">🎨 Upload Ảnh Bìa</h3>
+                        <div class="form-group">
+                            <label class="form-label">Chọn ảnh bìa (khuyến nghị 400x560px)</label>
+                            <input type="file" class="form-input" accept="image/*" id="coverUpload">
+                            <p class="text-xs text-tertiary mt-2">
+                                Sau khi upload, copy file vào thư mục <code>assets/covers/</code> và cập nhật đường dẫn
+                                trong books.json
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <button class="btn btn-primary" onclick="openDataFolder()">
+                            📂 Mở thư mục Data
+                        </button>
+                        <button class="btn btn-secondary" onclick="refreshStats()">
+                            🔄 Làm mới thống kê
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Popular Books Table -->
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold mb-4">🔥 Sách phổ biến nhất</h3>
+                    <div class="bg-secondary rounded-lg overflow-hidden">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead style="background-color: var(--bg-tertiary);">
+                                <tr>
+                                    <th style="padding: var(--space-4); text-align: left;">Sách</th>
+                                    <th style="padding: var(--space-4); text-align: left;">Tác giả</th>
+                                    <th style="padding: var(--space-4); text-align: center;">Lượt đọc</th>
+                                    <th style="padding: var(--space-4); text-align: center;">Đánh giá</th>
+                                    <th style="padding: var(--space-4); text-align: center;">Chapters</th>
+                                </tr>
+                            </thead>
+                            <tbody id="popularBooksTable">
+                                <!-- Will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/data-manager.js"></script>
+    <script>
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', () => {
+            if (UserSession.isAdmin()) {
+                showDashboard();
+            }
+        });
+
+        function handleLogin() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Simple authentication (in production, use proper backend)
+            if (username === 'admin' && password === 'admin123') {
+                UserSession.setUser({
+                    id: 'admin_001',
+                    username: 'admin',
+                    role: 'admin'
+                });
+                showDashboard();
+            } else {
+                showToast('Sai tên đăng nhập hoặc mật khẩu!', 'error');
+            }
+        }
+
+        function handleLogout() {
+            UserSession.logout();
+            location.reload();
+        }
+
+        async function showDashboard() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('adminDashboard').classList.remove('hidden');
+            await loadDashboardData();
+        }
+
+        async function loadDashboardData() {
+            const books = await dataManager.getBooks();
+            const chapters = await dataManager.getChapters();
+            const users = await dataManager.getUsers();
+            const comments = await dataManager.getComments();
+
+            document.getElementById('totalBooks').textContent = books.length;
+            document.getElementById('totalChapters').textContent = chapters.length;
+            document.getElementById('totalUsers').textContent = users.filter(u => u.role === 'user').length;
+            document.getElementById('totalComments').textContent = comments.length;
+
+            // Load popular books
+            const popular = books
+                .sort((a, b) => (b.views || 0) - (a.views || 0))
+                .slice(0, 10);
+
+            const tableBody = document.getElementById('popularBooksTable');
+            tableBody.innerHTML = popular.map(book => `
+        <tr style="border-bottom: 1px solid var(--border-color);">
+          <td style="padding: var(--space-4);">
+            <div class="flex items-center gap-3">
+              <img src="${book.cover}" alt="${book.title}" style="width: 40px; height: 56px; object-fit: cover; border-radius: var(--border-radius-sm);">
+              <div>
+                <div class="font-semibold">${book.title}</div>
+                <div class="text-xs text-secondary">${book.status === 'completed' ? 'Hoàn thành' : 'Đang cập nhật'}</div>
+              </div>
+            </div>
+          </td>
+          <td style="padding: var(--space-4);">${book.author}</td>
+          <td style="padding: var(--space-4); text-align: center;">${formatNumber(book.views || 0)}</td>
+          <td style="padding: var(--space-4); text-align: center;">
+            ⭐ ${(book.avgRating || 0).toFixed(1)} (${book.totalRatings || 0})
+          </td>
+          <td style="padding: var(--space-4); text-align: center;">${book.chapters.length}</td>
+        </tr>
+      `).join('');
+        }
+
+        function openDataFolder() {
+            showToast('Vui lòng mở thư mục data/ trong project để chỉnh sửa', 'info');
+        }
+
+        async function refreshStats() {
+            dataManager.clearCache();
+            await loadDashboardData();
+            showToast('Đã làm mới thống kê!', 'success');
+        }
+
+        // Handle cover upload
+        document.getElementById('coverUpload')?.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                showToast(`Đã chọn file: ${file.name}. Hãy copy vào thư mục assets/covers/`, 'info');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "book_001",
+    "title": "Red, White & Royal Blue",
+    "author": "Casey McQuiston",
+    "cover": "./assets/covers/rwrb.jpg",
+    "description": "Khi mẹ của Alex trở thành Tổng thống Hoa Kỳ, anh bị kéo vào vòng xoáy của cuộc sống chính trị. Với vẻ ngoài quyến rũ và tính cách lạc quan, Alex nhanh chóng trở thành một trong những người trẻ được yêu thích nhất nước Mỹ. Tuy nhiên, điều khiến anh đau đầu nhất chính là Hoàng tử Henry của Anh - người dường như không thể chịu đựng nổi Alex. Một sự cố tại một đám cưới hoàng gia đã khiến mối quan hệ căng thẳng giữa hai nước trở nên tồi tệ hơn, buộc họ phải giả vờ trở thành bạn bè. Nhưng những gì bắt đầu như một mối thù truyền kiếp lại dần dần biến thành một điều gì đó hoàn toàn khác...",
+    "genres": ["Romance", "LGBT", "Contemporary Fiction", "Political"],
+    "avgRating": 4.6,
+    "totalRatings": 3245,
+    "status": "completed",
+    "chapters": ["chap_book001_001", "chap_book001_002", "chap_book001_003"],
+    "views": 125400,
+    "dateAdded": "2024-01-15"
+  },
+  {
+    "id": "book_002",
+    "title": "The Seven Husbands of Evelyn Hugo",
+    "author": "Taylor Jenkins Reid",
+    "cover": "./assets/covers/evelyn.jpg",
+    "description": "Evelyn Hugo, huyền thoại Hollywood già nua, cuối cùng đã sẵn sàng kể câu chuyện về cuộc đời mình. Nhưng khi cô chọn Monique Grant - một phóng viên tạp chí tương đối vô danh - để viết tiểu sử của mình, không ai hiểu tại sao, kể cả chính Monique. Evelyn Hugo nổi tiếng vì nhiều vai diễn đoạt giải thưởng của mình, những chiếc váy lộng lẫy, vẻ đẹp huyền thoại... và tất nhiên, là bảy cuộc hôn nhân. Giờ đây, trong tuổi già, Evelyn Hugo quyết định tiết lộ sự thật về cuộc đời hào nhoáng nhưng đầy bí mật của mình.",
+    "genres": ["Historical Fiction", "LGBT", "Romance", "Drama"],
+    "avgRating": 4.8,
+    "totalRatings": 5678,
+    "status": "completed",
+    "chapters": ["chap_book002_001"],
+    "views": 234500,
+    "dateAdded": "2024-02-10"
+  },
+  {
+    "id": "book_003",
+    "title": "The Midnight Library",
+    "author": "Matt Haig",
+    "cover": "./assets/covers/midnight.jpg",
+    "description": "Giữa sự sống và cái chết có một thư viện, và trong thư viện đó có vô số cuốn sách. Mỗi cuốn sách cho phép Nora Seed trải nghiệm một cuộc đời khác mà cô đã có thể sống nếu đã đưa ra những lựa chọn khác. Với sự giúp đỡ của người quản lý thư viện bí ẩn, Nora bắt đầu hành trình khám phá những đời sống có thể của mình. Nhưng liệu có tồn tại một cuộc sống hoàn hảo? Và điều gì thực sự tạo nên một cuộc đời đáng sống?",
+    "genres": ["Fantasy", "Contemporary Fiction", "Philosophy", "Self-Discovery"],
+    "avgRating": 4.5,
+    "totalRatings": 4321,
+    "status": "ongoing",
+    "chapters": ["chap_book003_001", "chap_book003_002"],
+    "views": 189000,
+    "dateAdded": "2024-03-20"
+  },
+  {
+    "id": "book_004",
+    "title": "Normal People",
+    "author": "Sally Rooney",
+    "cover": "./assets/covers/normal.jpg",
+    "description": "Connell và Marianne lớn lên ở một thị trấn nhỏ ở miền tây Ireland. Ở trường trung học, Connell là một trong những học sinh được yêu thích nhất còn Marianne bị cô lập. Nhưng khi họ cùng nhau học đại học ở Trinity College, Marianne tìm thấy tiếng nói của mình và Connell bắt đầu cảm thấy lạc lõng. Trong suốt những năm tháng của tuổi trẻ, họ lại gần nhau, rồi xa cách, nhưng luôn không thể quên nhau. Một câu chuyện tuyệt vời về tình bạn, tình yêu và những người bình thường.",
+    "genres": ["Contemporary Fiction", "Romance", "Coming-of-Age", "Literary Fiction"],
+    "avgRating": 4.3,
+    "totalRatings": 2987,
+    "status": "completed",
+    "chapters": ["chap_book004_001"],
+    "views": 156300,
+    "dateAdded": "2024-04-05"
+  },
+  {
+    "id": "book_005",
+    "title": "The Song of Achilles",
+    "author": "Madeline Miller",
+    "cover": "./assets/covers/achilles.jpg",
+    "description": "Patroclus, một hoàng tử bị lưu đày, được gửi đến làm học trò của vua Peleus. Tại đây, cậu gặp Achilles, người con trai duy nhất của Peleus và nữ thần biển Thetis. Achilles được sinh ra để trở thành chiến binh vĩ đại nhất thế giới, và từ buổi đầu, Patroclus đã bị thu hút bởi vẻ ngoài, tài năng và sự tự tin của cậu. Khi Patroclus trở thành người bạn thân nhất và yêu thương nhất của Achilles, họ cùng nhau trưởng thành. Nhưng số phận đã định sẵn Achilles sẽ phải chiến đấu trong cuộc chiến Troy...",
+    "genres": ["Historical Fiction", "LGBT", "Mythology", "Romance", "Greek Mythology"],
+    "avgRating": 4.7,
+    "totalRatings": 6543,
+    "status": "completed",
+    "chapters": ["chap_book005_001", "chap_book005_002"],
+    "views": 287600,
+    "dateAdded": "2024-01-28"
+  }
+]

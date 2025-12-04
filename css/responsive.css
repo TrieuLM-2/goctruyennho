@@ -1,0 +1,362 @@
+/* ========================================
+   RESPONSIVE STYLESHEET
+   Mobile-first responsive design
+   ======================================== */
+
+/* ========== MOBILE (< 768px) ========== */
+/* Base styles are mobile-first */
+
+/* Hide desktop-only elements on mobile */
+@media (max-width: 767px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: var(--space-4);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .nav-menu.mobile-open {
+        display: flex;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        color: var(--text-primary);
+        cursor: pointer;
+    }
+
+    .search-bar {
+        max-width: 100%;
+    }
+
+    /* Book grid - single column on mobile */
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sidebar on mobile */
+    .sidebar {
+        position: static;
+        margin-bottom: var(--space-6);
+    }
+
+    /* Settings panel - full width on mobile */
+    .settings-panel {
+        width: 100%;
+        left: 0;
+    }
+
+    /* Modal adjustments */
+    .modal {
+        margin: var(--space-4);
+        max-height: calc(100vh - var(--space-8));
+    }
+
+    /* Chapter navigation buttons */
+    .chapter-nav {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+
+    .chapter-nav .btn {
+        width: 100%;
+    }
+
+    /* Comment replies - less indent on mobile */
+    .comment-replies {
+        margin-left: var(--space-4);
+        padding-left: var(--space-3);
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-4);
+    }
+
+    /* Admin dashboard */
+    .admin-sidebar {
+        position: static;
+        width: 100%;
+        margin-bottom: var(--space-4);
+    }
+
+    .admin-content {
+        padding: var(--space-4);
+    }
+
+    /* Form columns on mobile */
+    .form-row {
+        flex-direction: column;
+    }
+
+    /* Hero section */
+    .hero {
+        padding: var(--space-8) 0;
+    }
+
+    .hero-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    /* Book detail page */
+    .book-detail-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .book-cover-large {
+        margin: 0 auto var(--space-6);
+    }
+
+    /* Reading page */
+    .reading-content {
+        padding: var(--space-4) var(--space-4);
+        font-size: var(--font-size-base);
+    }
+
+    .reading-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+}
+
+/* ========== TABLET (768px - 1024px) ========== */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none !important;
+    }
+
+    .mobile-menu-toggle {
+        display: none;
+    }
+
+    /* Book grid - 2-3 columns on tablet */
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Two column layout for book detail */
+    .book-detail-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--space-8);
+    }
+
+    /* Settings panel */
+    .settings-panel {
+        width: 350px;
+    }
+
+    /* Reading content */
+    .reading-content {
+        padding: var(--space-8) var(--space-6);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Admin layout */
+    .admin-layout {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: var(--space-6);
+    }
+
+    .admin-sidebar {
+        position: sticky;
+        top: calc(var(--header-height) + var(--space-4));
+        height: fit-content;
+    }
+}
+
+@media (min-width: 900px) {
+
+    /* Book grid - 3 columns on larger tablets */
+    .books-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========== DESKTOP (> 1024px) ========== */
+@media (min-width: 1024px) {
+    .tablet-only {
+        display: none !important;
+    }
+
+    /* Book grid - 4 columns on desktop */
+    .books-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Homepage layout with sidebar */
+    .homepage-layout {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: var(--space-8);
+    }
+
+    /* Reading content - larger on desktop */
+    .reading-content {
+        max-width: 900px;
+        font-size: var(--font-size-lg);
+    }
+
+    /* Settings panel */
+    .settings-panel {
+        width: 380px;
+    }
+
+    /* Admin layout - wider sidebar */
+    .admin-layout {
+        grid-template-columns: 280px 1fr;
+    }
+
+    /* Modal - larger on desktop */
+    .modal {
+        max-width: 700px;
+    }
+
+    /* Book detail cover */
+    .book-cover-large {
+        max-width: 350px;
+    }
+}
+
+/* ========== LARGE DESKTOP (> 1280px) ========== */
+@media (min-width: 1280px) {
+
+    /* Book grid - 5 columns on large screens */
+    .books-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    /* Reading content - even larger */
+    .reading-content {
+        max-width: 1000px;
+    }
+
+    /* Homepage sidebar */
+    .homepage-layout {
+        grid-template-columns: 1fr 350px;
+    }
+}
+
+/* ========== EXTRA LARGE (> 1536px) ========== */
+@media (min-width: 1536px) {
+
+    /* Book grid - 6 columns on extra large screens */
+    .books-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+
+    .site-header,
+    .site-footer,
+    .sidebar,
+    .settings-panel,
+    .settings-toggle,
+    .btn,
+    .comment-section,
+    .chapter-nav,
+    .pagination {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .reading-content {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: underline;
+        color: black;
+    }
+}
+
+/* ========== TOUCH DEVICE OPTIMIZATIONS ========== */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Larger touch targets */
+    .btn,
+    .nav-link,
+    .sidebar-link,
+    .chapter-item {
+        min-height: 44px;
+    }
+
+    /* Remove hover effects that don't work on touch */
+    .book-card:hover {
+        transform: none;
+    }
+
+    .book-card:hover .book-card-cover img {
+        transform: none;
+    }
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ========== HIGH CONTRAST MODE ========== */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+    }
+
+    [data-theme="dark"] {
+        --border-color: #ffffff;
+    }
+
+    .btn-primary {
+        border: 2px solid currentColor;
+    }
+}
+
+/* ========== LANDSCAPE ORIENTATION (MOBILE) ========== */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        padding: var(--space-4) 0;
+    }
+
+    .settings-panel {
+        width: 50%;
+    }
+
+    .modal {
+        max-height: 80vh;
+    }
+}
